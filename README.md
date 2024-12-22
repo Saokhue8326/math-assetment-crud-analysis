@@ -1,99 +1,90 @@
-# math-assetment-crud-analysis
- Đồ án Python: Phân tích và xử lý dữ liệu về MathE
+# Quản lý và Hiển thị Dữ liệu
 
+Ứng dụng Python này cho phép người dùng quản lý và trực quan hóa dữ liệu được lưu trữ trong tệp CSV. Nó cung cấp các chức năng CRUD (Tạo, Đọc, Cập nhật, Xóa), tìm kiếm, sắp xếp và biểu đồ dữ liệu.
 
-# Tiêu đề hạng 1
+## Tính năng
 
-Đây là văn bản mẫu 0123456789.
-Xuống dòng 1 lần không phải là xuống dòng
+*   **CRUD:** Thêm, sửa, xóa dữ liệu một cách dễ dàng.
+*   **Tìm kiếm:** Tìm kiếm dữ liệu dựa trên nhiều tiêu chí.
+*   **Sắp xếp:** Sắp xếp dữ liệu theo bất kỳ cột nào.
+*   **Hiển thị dạng bảng:** Hiển thị dữ liệu trong bảng tương tác (Treeview).
+*   **Biểu đồ:** Trực quan hóa dữ liệu bằng các loại biểu đồ:
+    *   Biểu đồ cột xếp chồng (Stacked Bar Chart): So sánh số lượng câu trả lời đúng/sai theo quốc gia.
+    *   Biểu đồ tròn (Pie Chart): Thể hiện tỷ lệ số lượng câu hỏi theo từng cấp độ.
+    *   Biểu đồ diện tích (Area Chart): Thể hiện số lượng câu hỏi theo từng chủ đề.
+*   **Giao diện người dùng:** Giao diện đồ họa thân thiện sử dụng Tkinter.
+*   **Lưu trữ dữ liệu:** Dữ liệu được lưu trữ trong tệp CSV.
 
-Đây mới là xuống dòng
+## Công nghệ sử dụng
 
-## Tiêu đề hạng 2: In đậm, in nghiêng
+*   Python
+*   Tkinter (Giao diện người dùng)
+*   Pandas (Xử lý dữ liệu)
+*   Matplotlib (Vẽ biểu đồ)
 
-*Đây là text in nghiêng*
+## Cài đặt
 
-**Đây là text in đậm**s
+1.  **Clone repository:**
 
-***Đây là text vừa nghiêng vừa đậm***
+    ```bash
+    git clone [https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git](https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git)
+    ```
 
-*Đây là in nghiêng, còn **đây là in đậm trong in nghiêng***
+2.  **Di chuyển vào thư mục dự án:**
 
-**Đây là in đậm, còn *đây là in nghiêng trong in đậm***
+    ```bash
+    cd YOUR_REPOSITORY
+    ```
 
-_In nghiêng_
+3.  **Tạo môi trường ảo (khuyến nghị):**
 
-__In đậm__
+    ```bash
+    python3 -m venv .venv
+    source .venv/bin/activate  # Trên Linux/macOS
+    .venv\Scripts\activate  # Trên Windows
+    ```
 
-### Tiêu đề hạng 3: Hyperlink và những thứ khác
+4.  **Cài đặt các gói phụ thuộc:**
 
-Đây là link github: [GitHub](https://github.com)
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-Như trong trang mô tả [dataset](https://archive.ics.uci.edu/dataset/1031/dataset+for+assessing+mathematics+learning+in+higher+education) có ghi:
+    (Bạn cần tạo file `requirements.txt` bằng lệnh `pip freeze > requirements.txt` sau khi đã cài đặt các thư viện cần thiết.)
 
-> MathE is a mathematical platform developed under the MathE project (mathe.pixel-online.org). The dataset has 9546 answers to questions in the Mathematical topics taught in higher education. The file has eight features, named: Student ID, Student Country, Question ID, Type of answer (correct or incorrect), Question level (basic or advanced), Math Topic, Math Subtopic, and Question Keywords. The question level was associated with the professor who submitted the question. The data was obtained from February 2019 until December 2023.
-> More information is available at:
->
-> https://www.sciencedirect.com/science/article/pii/S2352340924002075?via%3Dihub
->> https://dados.ipb.pt//dataset.xhtml?persistentId=doi:10.34620/dadosipb/PW3OWY
+## Cách sử dụng
 
-## Danh sách
+1.  **Chạy ứng dụng:**
 
-Đây là danh sách dạng số
+    ```bash
+    python ./src/main.py
+    ```
 
-1. Mục 1
+2.  **Giao diện chính:** Giao diện sẽ hiển thị bảng dữ liệu, các trường nhập liệu và các nút chức năng.
 
-    áđâsđá
+3.  **Thao tác với dữ liệu:**
+    *   **Thêm:** Nhập dữ liệu vào các trường và nhấn nút "Add".
+    *   **Sửa:** Chọn một hàng trong bảng, chỉnh sửa dữ liệu trong các trường và nhấn nút "Update".
+    *   **Xóa:** Chọn một hoặc nhiều hàng trong bảng và nhấn nút "Delete".
+    *   **Tìm kiếm:** Nhập giá trị tìm kiếm vào các trường và nhấn nút "Search".
+    *   **Sắp xếp:** Nhấp vào tiêu đề cột trong bảng để sắp xếp.
 
-2. Mục 2
+4.  **Hiển thị biểu đồ:** Nhấn vào các nút "Stacked Bar Chart", "Pie Chart" hoặc "Area Chart" để hiển thị biểu đồ tương ứng.
 
-    1. Mục i
+## Cấu trúc thư mục
 
-    2. Mục ii
+*   math-assetment-crud-analysis/
+    *   data_manager.py: Quản lý dữ liệu (đọc/ghi file CSV, thao tác dữ liệu)
+    *   chart_utils.py: Các hàm tiện ích để vẽ biểu đồ
+    *   main.py: Code chính của ứng dụng
+    *   dataset.csv: File dữ liệu mẫu (hoặc file dữ liệu của bạn)
+    *   requirements.txt: Danh sách các gói phụ thuộc
+    *   README.md: File này
 
-        1. Mục a
+## Đóng góp
 
-            1. Mục a con
+Mọi đóng góp đều được hoan nghênh. Vui lòng tạo pull request hoặc mở issue nếu bạn tìm thấy lỗi hoặc có ý tưởng cải tiến.
 
-                áđâsđấ
+## Liên hệ
 
-Danh sách không thứ tự:
-
-- Mục 1
-
-- Mục 2
-
-    - Mục 2 nhỏ
-
-        - áđasad4
-
-## Hiển thị `code`
-
-Đây là lệnh in trong python: `print("Hello World!")`.
-
-```
-a = 1
-b = 2
-print(a + b)
-```
-
-Đây là đường kẻ ngang:
-
-***
-
-[`https://github.com`](https://github.com)
-
-<https://github.com>
-
-<email@example.com>
-
-
-Đây là hình ảnh:
-
-![Tiêu đề ảnh](docs\default-ui.png "Tiêu đề ảnh")
-
-Đây là hình ảnh gắn link:
-
-[![Tiêu đề ảnh](docs\default-ui.png "Tiêu đề ảnh")](https://github.com)
-
-[![IMAGE_ALT](https://img.youtube.com/vi/NgL08ush-10/0.jpg)](https://youtu.be/NgL08ush-10)
+[Thông tin liên hệ của bạn (ví dụ: email, GitHub profile)]
