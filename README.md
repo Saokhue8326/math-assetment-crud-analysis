@@ -27,13 +27,13 @@
 1.  **Clone repository:**
 
     ```bash
-    git clone [https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git](https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git)
+    git clone https://github.com/Saokhue8326/math-assetment-crud-analysis.git
     ```
 
 2.  **Di chuyển vào thư mục dự án:**
 
     ```bash
-    cd YOUR_REPOSITORY
+    cd math-assetment-crud-analysis
     ```
 
 3.  **Tạo môi trường ảo (khuyến nghị):**
@@ -49,8 +49,6 @@
     ```bash
     pip install -r requirements.txt
     ```
-
-    (Bạn cần tạo file `requirements.txt` bằng lệnh `pip freeze > requirements.txt` sau khi đã cài đặt các thư viện cần thiết.)
 
 ## Cách sử dụng
 
@@ -73,13 +71,13 @@
 
 ## Cấu trúc thư mục
 
-*   math-assetment-crud-analysis/
-    *   data_manager.py: Quản lý dữ liệu (đọc/ghi file CSV, thao tác dữ liệu)
-    *   chart_utils.py: Các hàm tiện ích để vẽ biểu đồ
-    *   main.py: Code chính của ứng dụng
-    *   dataset.csv: File dữ liệu mẫu (hoặc file dữ liệu của bạn)
-    *   requirements.txt: Danh sách các gói phụ thuộc
-    *   README.md: File này
+*   `math-assetment-crud-analysis`
+    *   `data`
+        *   `dataset.csv`: File dữ liệu mẫu (hoặc file dữ liệu của bạn)
+    *   `src`
+        *   `data_manager.py`: Quản lý dữ liệu (đọc/ghi file CSV, thao tác dữ liệu)
+        *   `chart_utils.py`: Các hàm tiện ích để vẽ biểu đồ
+        *   `main.py`: Code chính của ứng dụng
 
 ## Đóng góp
 

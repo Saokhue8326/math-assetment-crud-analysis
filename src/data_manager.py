@@ -62,7 +62,7 @@ class DataManager:
         Tham số:
             indices (list): Danh sách các chỉ số của các hàng cần xóa.
         """
-        self.data.drop(self.data.index[indices], inplace=True)
+        self.data.drop(self.data.index[indices])
         self.save_data()
 
     def update_data(self, index, updated_data):
@@ -98,9 +98,8 @@ class DataManager:
         """
         Sắp xếp dữ liệu theo một cột cụ thể.
 
-        Sử dụng phương thức `sort_values` của DataFrame để sắp xếp dữ liệu theo cột `sort_by` với thứ tự tăng dần hoặc giảm dần tùy thuộc vào tham số `
-        # data_manager.py (continued)
+        Sử dụng phương thức `sort_values` của DataFrame để sắp xếp dữ liệu theo cột `sort_by` với thứ tự tăng dần hoặc giảm dần tùy thuộc vào tham số.
         """
         if sort_by in self.data.columns:
-            self.data.sort_values(by=sort_by, ascending=ascending, inplace=True)
+            self.data.sort_values(by=sort_by, ascending=ascending)
         return self.data

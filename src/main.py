@@ -30,7 +30,7 @@ class App:
         self.master.state("zoomed")
 
         self.data_manager = DataManager()
-        self.ascending_order = {}  # Lưu trữ thứ tự sắp xếp cho từng cột
+        self.ascending_order = {}
         self.create_widgets()
         self.display_data()
 
@@ -44,7 +44,6 @@ class App:
         - Khung Bảng (tree_frame) chứa Treeview hiển thị dữ liệu.
         - Các trường nhập liệu (input_fields) tương ứng với các cột dữ liệu.
         """
-        #Tạo Khung chính và các khung phụ
         self.main_frame = Frame(self.master)
         self.main_frame.grid(row=0, column=0, sticky="nsew")
         self.master.grid_rowconfigure(0, weight=1)
@@ -63,7 +62,7 @@ class App:
         self.main_frame.grid_rowconfigure(1, weight=0)
         self.main_frame.grid_columnconfigure(0, weight=0)
         self.main_frame.grid_columnconfigure(1, weight=10)
-        #Các ô nhập liệu
+
         self.input_fields = []
         for _, column in enumerate(COLUMN_NAMES):
             field_frame = Frame(self.crud_frame)
@@ -72,7 +71,7 @@ class App:
             entry = Entry(field_frame, width=30)
             entry.pack(side="right", padx=5)
             self.input_fields.append(entry)
-        #Nút Crud
+
         crud_input_frame = Frame(self.crud_frame)
         crud_input_frame.pack(fill="x", pady=10)
         Button(crud_input_frame, text="Search", command=self.search_data).pack(side="left", padx=5)
@@ -80,28 +79,28 @@ class App:
         Button(crud_input_frame, text="Update", command=self.update_data).pack(side="left", padx=5)
         Button(crud_input_frame, text="Delete", command=self.delete_data).pack(side="left", padx=5)
         Button(crud_input_frame, text="Refresh", command=self.display_data).pack(side="left", padx=5)
-        #Nút đồ thị
+
         chart_button_frame = Frame(self.chart_frame)
         chart_button_frame.pack(side="left", fill="y", padx=(0, 10))
         Button(chart_button_frame, text="Stacked Bar Chart", command=self.draw_stacked_bar_chart).pack(fill="x", pady=5)
         Button(chart_button_frame, text="Pie Chart", command=self.draw_pie_chart).pack(fill="x", pady=5)
         Button(chart_button_frame, text="Area Chart", command=self.draw_area_chart).pack(fill="x", pady=5)
-        #Khung hiển thị biểu đồ
+
         self.chart_display_frame = Frame(self.chart_frame)
         self.chart_display_frame.pack(side="right", fill="both", expand=True)
-        #Tạo treeview
+
         self.tree = ttk.Treeview(self.tree_frame, columns=COLUMN_NAMES, show="headings", height=15)
-        #Thiết lập tiêu dề cho cột và gặn
+
         for column in COLUMN_NAMES:
             self.tree.heading(column, text=column, command=lambda c=column: self.sort_column(c))
             self.tree.column(column, anchor="w", width=120)
         self.tree.pack(side="left", fill="both", expand=True)
-        self.tree.bind("<<TreeviewSelect>>", self.auto_fill_fields)#Sự kiện chọn dòng
-        #Thanh cuộn
+        self.tree.bind("<<TreeviewSelect>>", self.auto_fill_fields)
+
         vertical_scrollbar = Scrollbar(self.tree_frame, orient="vertical", command=self.tree.yview)
         vertical_scrollbar.pack(side="right", fill="y")
         self.tree.configure(yscrollcommand=vertical_scrollbar.set)
-        #Đóng cửa sổ
+
         self.master.protocol("WM_DELETE_WINDOW", self.on_closing)
 
     def display_data(self, sort_by="Student ID", ascending=True):
@@ -148,7 +147,6 @@ class App:
         self.display_data()
 
     def delete_data(self):
-        # main.py (continued)
         """
         Xóa các hàng dữ liệu được chọn.
 
