@@ -83,8 +83,15 @@
 
 ## Đóng góp
 
+Chúng tôi xin cảm ơn sự đóng góp từ các thành viên:
+- **Hồ Phạm Sao Khuê** (24154056)
+- **Phan Khánh Duy** (24154020)
+- **Ngô Trung Hoàng Đức** (24154028)
+- **Nguyễn Duy Hào** (24154032)
+- **Nguyễn Duy Hảo** (24154034)
+
 Mọi đóng góp đều được hoan nghênh. Vui lòng tạo pull request hoặc mở issue nếu bạn tìm thấy lỗi hoặc có ý tưởng cải tiến.
 
 ## Liên hệ
 
-[Thông tin liên hệ của bạn (ví dụ: email, GitHub profile)]
+Mọi thắc mắc, góp ý xin vui lòng liên hệ qua email: **khuehophamsao@gmail.com**

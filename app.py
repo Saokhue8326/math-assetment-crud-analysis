@@ -5,7 +5,7 @@ import pandas as pd
 import os
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 
-FILE_NAME = "./dataset.csv"
+FILE_NAME = "./data/dataset.csv"
 COLUMN_NAMES = ["Student ID", "Student Country", "Question ID", "Type of Answer", "Question Level", "Topic", "Subtopic", "Keywords"]
 
 # Global variable to store the current figure
@@ -62,6 +62,20 @@ def delete_data():
         data.drop(data.index[index], inplace=True)
     data.to_csv(FILE_NAME, sep=";", index=False, encoding="utf-8")
     display_data()
+
+# Update selected data
+def update_data():
+    selected_items = tree.selection()
+    if not selected_items:
+        messagebox.showwarning("Warning", "Please select an item to update.")
+        return
+    updated_data = [field.get() for field in input_fields]
+    for item in selected_items:
+        index = tree.index(item)
+        data.iloc[index] = updated_data
+    data.to_csv(FILE_NAME, sep=";", index=False, encoding="utf-8")
+    display_data()
+
 
 # Search data (modified to work with combined input fields)
 def search_data():
@@ -149,18 +163,7 @@ def clear_chart_area():
         plt.close(current_figure) # Close the figure when clearing
         current_figure = None
 
-# Update selected data
-def update_data():
-    selected_items = tree.selection()
-    if not selected_items:
-        messagebox.showwarning("Warning", "Please select an item to update.")
-        return
-    updated_data = [field.get() for field in input_fields]
-    for item in selected_items:
-        index = tree.index(item)
-        data.iloc[index] = updated_data
-    data.to_csv(FILE_NAME, sep=";", index=False, encoding="utf-8")
-    display_data()
+
 
 # Function to handle window closing
 def on_closing():
@@ -241,9 +244,7 @@ vertical_scrollbar = Scrollbar(tree_frame, orient="vertical", command=tree.yview
 vertical_scrollbar.pack(side="right", fill="y")
 tree.configure(yscrollcommand=vertical_scrollbar.set)
 
-horizontal_scrollbar = Scrollbar(tree_frame, orient="horizontal", command=tree.xview)
-horizontal_scrollbar.pack(side="bottom", fill="x")
-tree.configure(xscrollcommand=horizontal_scrollbar.set)
+
 
 # Protocol handler for window closing
 app.protocol("WM_DELETE_WINDOW", on_closing) # Key change
